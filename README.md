@@ -24,6 +24,21 @@ This project explores how student models can learn from larger teachers while pr
 
 The repository includes a primary evaluation script and documentation describing the project objectives, metrics, and experimental workflow. It is intentionally compact for focused experimentation.
 
+## Architecture Diagram
+
+```mermaid
+flowchart LR
+  Teacher["Teacher Model Outputs"] --> Distill["Knowledge Distillation"]
+  Data["Evaluation Data"] --> Student["Student Model"]
+  Distill --> Student
+  Student --> Robustness["Adversarial Robustness Tests"]
+  Student --> Calibration["Calibration Metrics"]
+  Student --> Shift["Distribution Shift Evaluation"]
+  Robustness --> Report["Safety Evaluation Summary"]
+  Calibration --> Report
+  Shift --> Report
+```
+
 ## Technology Stack
 
 - Python for experiment execution.

@@ -27,27 +27,28 @@ The repository includes a primary evaluation script and documentation describing
 ## Architecture Diagram
 
 ```mermaid
-flowchart LR
+%%{init: {"flowchart": {"nodeSpacing": 55, "rankSpacing": 70, "curve": "basis"}, "themeVariables": {"fontSize": "16px", "fontFamily": "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"}}}%%
+flowchart TD
   Teacher["Teacher Model Outputs"] --> Distill["Knowledge Distillation"]
   Data["Evaluation Data"] --> Student["Student Model"]
   Distill --> Student
   Student --> Robustness["Adversarial Robustness Tests"]
   Student --> Calibration["Calibration Metrics"]
-  Student --> Shift["Distribution Shift Evaluation"]
+  Student --> Shift["Distribution Shift<br/>Evaluation"]
   Robustness --> Report["Safety Evaluation Summary"]
   Calibration --> Report
   Shift --> Report
 
-  classDef inputs fill:#E0F2FE,stroke:#0284C7,color:#0C4A6E,stroke-width:2px;
-  classDef process fill:#EDE9FE,stroke:#7C3AED,color:#4C1D95,stroke-width:2px;
-  classDef data fill:#CCFBF1,stroke:#0D9488,color:#134E4A,stroke-width:2px;
-  classDef agent fill:#FCE7F3,stroke:#DB2777,color:#831843,stroke-width:2px;
-  classDef output fill:#FEF9C3,stroke:#CA8A04,color:#713F12,stroke-width:2px;
+  classDef inputs fill:#E0F2FE,stroke:#0284C7,color:#0C4A6E,stroke-width:2.5px;
+  classDef process fill:#EDE9FE,stroke:#7C3AED,color:#4C1D95,stroke-width:2.5px;
+  classDef data fill:#CCFBF1,stroke:#0D9488,color:#134E4A,stroke-width:2.5px;
+  classDef agent fill:#FCE7F3,stroke:#DB2777,color:#831843,stroke-width:2.5px;
+  classDef output fill:#FEF9C3,stroke:#CA8A04,color:#713F12,stroke-width:2.5px;
   class Teacher,Data inputs;
   class Student,Robustness,Calibration,Shift process;
   class Distill agent;
   class Report output;
-  linkStyle default stroke:#475569,stroke-width:2px;
+  linkStyle default stroke:#475569,stroke-width:2.5px;
 ```
 
 ## Technology Stack
